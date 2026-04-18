@@ -1,0 +1,147 @@
+Projeto — Gestão de Centro de Formação
+1. Objetivo do Sistema
+
+Criar um sistema para:
+
+Cadastro de alunos
+Cadastro de cursos
+Gestão de turmas
+Pagamentos
+Relatórios
+Gestão de professores
+
+2. Escopo do MVP (Primeira Versão)
+
+Módulos da Primeira Versão
+1. Autenticação
+Login
+Logout
+Perfis (Admin, Funcionário)
+2. Alunos
+Cadastrar aluno
+Editar aluno
+Listar alunos
+Ver detalhes
+
+Campos sugeridos:
+
+Nome
+Telefone
+Email
+BI
+Endereço
+Data de nascimento
+Curso
+
+3. Cursos
+Criar curso
+Editar curso
+Listar cursos
+
+Campos:
+
+Nome
+Duração
+Preço
+Descrição
+
+4. Turmas
+Criar turma
+Associar curso
+Associar professor
+Data início
+Data fim
+
+5. Pagamentos
+Registrar pagamento
+Ver pagamentos
+Ver alunos em dívida
+
+Campos:
+
+Aluno
+Valor
+Data
+Método (Dinheiro, Transferência, etc.)
+
+6. Relatórios
+Alunos cadastrados
+Pagamentos do mês
+Alunos em dívida
+
+3. Modelagem Inicial (Base de Dados)
+
+Tabelas principais:
+
+Users
+Alunos
+Cursos
+Turmas
+Professores
+Inscricoes
+Pagamentos
+
+Relacionamentos:
+
+Aluno → Turma
+Turma → Curso
+Turma → Professor
+Aluno → Pagamento
+
+4. Stack Recomendada
+
+Backend:
+ASP.NET Core
+
+Frontend:
+Blazor 
+
+Banco:
+PostgreSQL
+
+Arquitetura:
+Clean Architecture (Simples)
+
+5. Cronograma (2 Semanas)
+Semana 1
+Dia 1
+Criar projeto base
+Configurar banco
+
+Dia 2
+Autenticação
+
+Dia 3
+CRUD Alunos
+
+Dia 4
+CRUD Cursos
+
+Dia 5
+CRUD Turmas
+
+Semana 2
+Dia 6
+Pagamentos
+
+Dia 7
+Relatórios
+
+Dia 8
+Ajustes UI
+
+Dia 9
+
+Testes
+Dia 10
+
+Deploy
+6. Estrutura do Projeto
+
+GestaoCentroFormacao
+│
+├── API
+├── Application
+├── Domain
+├── Infrastructure
+├── WebUI

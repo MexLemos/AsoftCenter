@@ -1,0 +1,106 @@
+@page "/alunos/listar"
+<!--rendermode InteractiveServer--(ahobano princípio) -->
+<!--com isso o componente é renderizado no servidor e atualizado dinamicamente no cliente. O botão não funcionava. Fiz alterações no components/App.razor-->
+@inject AlunoService AlunoService
+<h3>Cadastro de Alunos</h3>
+
+<div class="card p-3 mb-3">
+
+    <div class="mb-2">
+        <label>Nome</label>
+        <input class="form-control" @bind="novoAluno.Nome" />
+    </div>
+
+    <div class="mb-2">
+        <label>Telefone</label>
+        <input class="form-control" @bind="novoAluno.Telefone" />
+    </div>
+
+    <div class="mb-2">
+        <label>Email</label>
+        <input class="form-control" @bind="novoAluno.Email" />
+    </div>
+
+    <button class="btn btn-primary" @onclick="Adicionar">
+        Salvar
+    </button>
+
+</div>
+
+<h4>Lista de Alunos</h4>
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Email</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var aluno in alunos)
+        {
+            <tr>
+                <td>@aluno.Nome</td>
+                <td>@aluno.Telefone</td>
+                <td>@aluno.Email</td>
+                <td>
+                     <button class="btn btn-warning btn-sm" @onclick="() => Editar(aluno)">
+                    Editar
+                </button>
+
+                <button class="btn btn-danger btn-sm" @onclick="() => Excluir(aluno)">
+                    Excluir
+                </button>
+
+                    <button class="btn btn-info btn-sm" @onclick="() => Detalhes(aluno)">
+                        Detalhes
+                    </button>
+                </td>   
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+@code {
+
+    private List<Aluno> alunos = new();
+    private Aluno novoAluno = new();
+
+    protected override void OnInitialized()
+    {
+        alunos = AlunoService.GetAll();
+    }
+
+   private void Adicionar()
+{
+    if (!alunos.Contains(novoAluno))
+    {
+        AlunoService.Add(novoAluno);
+    }
+
+    novoAluno = new Aluno();
+    alunos = AlunoService.GetAll();
+}
+    
+    private void Editar(Aluno aluno)
+{
+    novoAluno = aluno;
+}
+
+private void Excluir(Aluno aluno)
+{
+    alunos.Remove(aluno);
+}
+
+private void Detalhes(Aluno aluno)
+{
+    // Lógica para exibir detalhes do aluno
+}
+
+
+}
