@@ -83,3 +83,4 @@ C:\Users\DELL2024\source\repos\AsoftCenter\obj\Debug\net10.0\refint\AsoftCenter.
 C:\Users\DELL2024\source\repos\AsoftCenter\obj\Debug\net10.0\AsoftCenter.pdb
 C:\Users\DELL2024\source\repos\AsoftCenter\obj\Debug\net10.0\AsoftCenter.genruntimeconfig.cache
 C:\Users\DELL2024\source\repos\AsoftCenter\obj\Debug\net10.0\ref\AsoftCenter.dll
+C:\Users\DELL2024\source\repos\AsoftCenter\obj\Debug\net10.0\AsoftCenter.sourcelink.json
